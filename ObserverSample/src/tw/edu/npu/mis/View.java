@@ -53,7 +53,7 @@ public class View {
      * Show the content of the model on the console.
      */
     public void onDraw() {
-        System.out.println("View (" + mName + "): " + mModel.getData());
+        if(!mModel.getData().isEmpty())System.out.println("View (" + mName + "): " + mModel.getData());
     }
 
 }

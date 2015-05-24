@@ -47,9 +47,9 @@ public class Controller {
         System.out.print("Controller: ");
         Scanner s = new Scanner(System.in);
         String input = s.nextLine().trim();
-        if (!input.isEmpty()) {
+  //      if (!input.isEmpty()) {
             mModel.setData(input);
-        }
+ //       }
     }
 
 }
