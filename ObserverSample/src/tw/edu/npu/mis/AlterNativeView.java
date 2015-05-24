@@ -36,6 +36,7 @@ public class AlterNativeView  extends View{
         super(name, window, model);
     }
 
+    @Override
     public void onDraw() {
         if(!mModel.getData().isEmpty())System.out.println("View (" + mName + "): " + new StringBuffer(mModel.getData()).reverse().toString());
     }

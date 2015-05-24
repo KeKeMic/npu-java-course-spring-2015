@@ -32,9 +32,9 @@ package tw.edu.npu.mis;
  */
 public class View {
 
-    final String mName;
+    protected final String mName;
     private final Window mWindow;
-    final Model mModel;
+    protected final Model mModel;
 
     public View(String name, Window window, Model model) {
         mName = name;
