@@ -30,30 +30,14 @@ package tw.edu.npu.mis;
  *
  * @author Samael Wang <freesamael@gmail.com>
  */
-public class View {
+public class AlterNativeView  extends View{
 
-    final String mName;
-    private final Window mWindow;
-    final Model mModel;
-
-    public View(String name, Window window, Model model) {
-        mName = name;
-        mWindow = window;
-        mModel = model;
+    public AlterNativeView(String name, Window window, Model model) {
+        super(name, window, model);
     }
 
-    /**
-     * Invalidate the view, which indicates it needs to be redrawn later.
-     */
-    public void invalidate() {
-        mWindow.schduleRedraw(this);
-    }
-
-    /**
-     * Show the content of the model on the console.
-     */
     public void onDraw() {
-        if(!mModel.getData().isEmpty())System.out.println("View (" + mName + "): " + mModel.getData());
+        if(!mModel.getData().isEmpty())System.out.println("View (" + mName + "): " + new StringBuffer(mModel.getData()).reverse().toString());
     }
 
 }
