@@ -11,8 +11,12 @@ import javax.swing.JButton;
  *
  * @author STP
  */
+
+
 public class ClickButton extends JButton{
-    public ClickButton (String name){
-        
+    private final Calculator mCalculator;
+    public ClickButton (String name, Calculator calculator){
+        this.setText(name);
+        mCalculator = calculator;
     }
 }
