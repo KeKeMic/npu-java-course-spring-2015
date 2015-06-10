@@ -30,18 +30,17 @@ public class MainFrame extends JFrame{
         Gbc.insets = new Insets(2,2,2,2);
         int count = 0;
         
-        for(int x = 0; x < 4; x++) {
-            for(int y = 0; y < 5; y++){
-                Gbc.gridx = x;
-                Gbc.gridy = y;
+        for(int x = 0; x < 5; x++) {
+            for(int y = 0; y < 4; y++){
+                Gbc.gridx = y;
+                Gbc.gridy = x;
                 ClickButtonArray[count] =  new  ClickButton(this,names[count]);
                 contentPane.add(ClickButtonArray[count], Gbc);
                 count ++;
             }
-            
          }
         this.setVisible(true);
     }
-     private ClickButton [] ClickButtonArray;
-     private String [] names= {"CE","C","Back","÷","7","8","9","╳","4","5","6","－","1","2","3","＋","±","0",".","＝"};;
+     private final ClickButton [] ClickButtonArray;
+     private final String [] names= {"CE","C","←","÷","7","8","9","╳","4","5","6","－","1","2","3","＋","±","0",".","＝"};;
 }

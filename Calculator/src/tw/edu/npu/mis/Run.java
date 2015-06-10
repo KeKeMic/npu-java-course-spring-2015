@@ -37,7 +37,7 @@ public class Run {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainFrame("計算機").setVisible(true);
+                new MainFrame("Calculator").setVisible(true);
             }
         });
     }

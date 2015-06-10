@@ -18,6 +18,7 @@ public class ClickButton extends JButton{
     public ClickButton (MainFrame owner,String name){ //,Calculator calculator){
         this.setText(name);
         this.owner = owner;
+        setPreferredSize(new java.awt.Dimension(50, 50));
 //        mCalculator = calculator;
     }
 
