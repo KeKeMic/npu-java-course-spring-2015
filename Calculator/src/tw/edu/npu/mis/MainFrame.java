@@ -18,6 +18,7 @@ import javax.swing.JFrame;
 public class MainFrame extends JFrame{
     public MainFrame(String title){
         this.setTitle(title);
+        this.ClickButtonArray = new ClickButton[20];
         initCimponents();
     }
 
@@ -27,6 +28,20 @@ public class MainFrame extends JFrame{
         contentPane.setLayout(new GridBagLayout());
         GridBagConstraints Gbc = new GridBagConstraints();
         Gbc.insets = new Insets(2,2,2,2);
+        int count = 0;
         
+        for(int x = 0; x < 4; x++) {
+            for(int y = 0; y < 5; y++){
+                Gbc.gridx = x;
+                Gbc.gridy = y;
+                ClickButtonArray[count] =  new  ClickButton(this,names[count]);
+                contentPane.add(ClickButtonArray[count], Gbc);
+                count ++;
+            }
+            
+         }
+        this.setVisible(true);
     }
+     private ClickButton [] ClickButtonArray;
+     private String [] names= {"CE","C","Back","÷","7","8","9","╳","4","5","6","－","1","2","3","＋","±","0",".","＝"};;
 }

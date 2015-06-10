@@ -14,9 +14,13 @@ import javax.swing.JButton;
 
 
 public class ClickButton extends JButton{
-    private final Calculator mCalculator;
-    public ClickButton (String name, Calculator calculator){
+    
+    public ClickButton (MainFrame owner,String name){ //,Calculator calculator){
         this.setText(name);
-        mCalculator = calculator;
+        this.owner = owner;
+//        mCalculator = calculator;
     }
+
+//    private final Calculator mCalculator;
+    private MainFrame owner;
 }
