@@ -10,6 +10,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import javax.swing.JFrame;
+import javax.swing.JTextField;
 
 /**
  *
@@ -20,6 +21,7 @@ public class MainFrame extends JFrame{
         this.setTitle(title);
         this.ClickButtonArray = new ClickButton[20];
         initCimponents();
+        this.setSize(500, 500);
     }
 
     private void initCimponents() {
@@ -29,8 +31,8 @@ public class MainFrame extends JFrame{
         GridBagConstraints Gbc = new GridBagConstraints();
         Gbc.insets = new Insets(2,2,2,2);
         int count = 0;
-        
-        for(int x = 0; x < 5; x++) {
+
+        for(int x = 1; x < 6; x++) {
             for(int y = 0; y < 4; y++){
                 Gbc.gridx = y;
                 Gbc.gridy = x;
@@ -39,8 +41,18 @@ public class MainFrame extends JFrame{
                 count ++;
             }
          }
+         
+        Text = new JTextField();
+        Gbc.gridx = 0;
+        Gbc.gridy = 0; 
+
+        Gbc.gridwidth =  5;
+        Text.setText("                                                                  ");
+        Text.setEnabled(false);
+        contentPane.add(Text, Gbc);
         this.setVisible(true);
     }
+     private JTextField Text;
      private final ClickButton [] ClickButtonArray;
      private final String [] names= {"CE","C","←","÷","7","8","9","╳","4","5","6","－","1","2","3","＋","±","0",".","＝"};;
 }
