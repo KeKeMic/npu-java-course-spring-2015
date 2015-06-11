@@ -35,19 +35,54 @@ public class Calculator {
     
     public void appendDigit(int digit) {
         // TODO code application logic here
+        if(Change == false)
+        {
+            if(Decimalpoint == false) DigitalA *= 10 + digit;
+            else 
+            {
+                float n = 1;
+                for(int i=0; i<Decimalplaces; i++)
+                {
+                    n = (float) (n * 0.1);
+                }
+                DigitalA += digit * n ;
+            }
+        }
+        else 
+        {
+            if(Decimalpoint == false) DigitalB *= 10 + digit;
+            else 
+            {
+                float n = 1;
+                for(int i=0; i<Decimalplaces; i++)
+                {
+                    n = (float) (n * 0.1);
+                }
+                DigitalB += digit * n ;
+            }
+        }
     }
     
     public void appendDot() {
         // TODO code application logic here
+        if(Decimalpoint = false)
+        {
+            Decimalpoint = true;
+            Decimalplaces++;
+        }
     }
     
     public void performOperation(Operator operator) {
         // TODO code application logic here
+        Decimalplaces = 0;
+        Decimalpoint = false;
+        Change = true;
     }
     
     public String getDisplay() {
         // TODO code application logic here
-        return null;
+        if(Change == false) return String.valueOf(DigitalA);
+        else return  String.valueOf(DigitalB);
     }
 
     /**
@@ -57,4 +92,9 @@ public class Calculator {
         // TODO code application logic here
     }*/
 
+    private Boolean Change = false;
+    private Boolean Decimalpoint = false;
+    private float DigitalA;
+    private float DigitalB;
+    private float Decimalplaces = 0;
 }
