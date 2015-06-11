@@ -36,23 +36,24 @@ public class MainFrame extends JFrame{
             for(int y = 0; y < 4; y++){
                 Gbc.gridx = y;
                 Gbc.gridy = x;
-                ClickButtonArray[count] =  new  ClickButton(this,names[count]);
+                ClickButtonArray[count] =  new  ClickButton(this,mNames[count],mOperator[count]);
                 contentPane.add(ClickButtonArray[count], Gbc);
                 count ++;
             }
          }
          
-        Text = new JTextField();
+        mText = new JTextField();
         Gbc.gridx = 0;
         Gbc.gridy = 0; 
 
         Gbc.gridwidth =  5;
-        Text.setText("                                                                  ");
-        Text.setEnabled(false);
-        contentPane.add(Text, Gbc);
+        mText.setText("                                                                  ");
+        mText.setEnabled(false);
+        contentPane.add(mText, Gbc);
         this.setVisible(true);
     }
-     private JTextField Text;
+     private JTextField mText;
      private final ClickButton [] ClickButtonArray;
-     private final String [] names= {"CE","C","←","÷","7","8","9","╳","4","5","6","－","1","2","3","＋","±","0",".","＝"};;
+     private final String [] mNames= {"CE","C","←","÷","7","8","9","╳","4","5","6","－","1","2","3","＋","±","0",".","＝"};
+     private final String [] mOperator = {"3","3","3","3","2","2","2","3","2","2","2","2","2","3","2","2","2","3","3","2","1","3"};
 }

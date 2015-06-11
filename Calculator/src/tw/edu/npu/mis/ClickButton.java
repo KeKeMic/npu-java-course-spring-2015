@@ -5,6 +5,8 @@
  */
 package tw.edu.npu.mis;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 /**
@@ -15,13 +17,31 @@ import javax.swing.JButton;
 
 public class ClickButton extends JButton{
     
-    public ClickButton (MainFrame owner,String name){ //,Calculator calculator){
+    public ClickButton (MainFrame owner,String name,String operator){ //,Calculator calculator){
         this.setText(name);
-        this.owner = owner;
+        this.Owner = owner;
+        this.Operator = operator;
         setPreferredSize(new java.awt.Dimension(50, 50));
-//        mCalculator = calculator;
+        mCalculator = new Calculator();
+        ActionListener taskPerformer = new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                switch(Operator)
+                {
+                    case "1": 
+                        mCalculator.appendDot();
+                        break;
+                    case "2":
+                        mCalculator.appendDigit(Integer.parseInt(name));
+                        break;
+                    case "3":
+                        mCalculator.performOperation(Calculator.Operator.CLEAR);
+                        break;
+                }
+            }
+         };
     }
 
-//    private final Calculator mCalculator;
-    private MainFrame owner;
+    private final Calculator mCalculator;
+    private final MainFrame Owner;
+    private final String Operator;
 }
