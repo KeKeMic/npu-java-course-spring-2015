@@ -72,7 +72,7 @@ public class Calculator {
         }
     }
     
-    public void performOperation(Operator operator) {
+    public void performOperation(String operator) {
         // TODO code application logic here
         Decimalplaces = 0;
         Decimalpoint = false;
