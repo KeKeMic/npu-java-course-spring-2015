@@ -30,11 +30,11 @@ public class ClickButton extends JButton{
         this.Owner = owner;
         this.Operator = operator;
         setPreferredSize(new java.awt.Dimension(50, 50));
-        mCalculator = calculator;
+        this.mCalculator = calculator;
         addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent evt) {
-                formMouseClicked(evt);
+   //             formMouseClicked();
             }
         });
     }
@@ -43,8 +43,8 @@ public class ClickButton extends JButton{
      * @param evt
      * @return 
      */
-    private String formMouseClicked(MouseEvent evt) {                                  
-        switch(Operator)
+    private String formMouseClicked() {                                  
+ /*       switch(this.Operator)
         {
             case "1": 
                 mCalculator.appendDot();
@@ -55,11 +55,12 @@ public class ClickButton extends JButton{
             case "3":
                 mCalculator.performOperation(this.getText());
                 break;
-        }
-        return mCalculator.getDisplay();
+        }*/
+        
+        return  mCalculator.getDisplay();
     }
 
-    private final Calculator mCalculator;
-    private final MainFrame Owner;
-    private final String Operator;
+    private Calculator mCalculator;
+    private MainFrame Owner;
+    private String Operator;
 }

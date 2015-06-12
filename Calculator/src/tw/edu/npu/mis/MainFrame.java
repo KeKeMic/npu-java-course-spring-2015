@@ -43,7 +43,7 @@ public class MainFrame extends JFrame implements ActionListener{
                 Gbc.gridx = y;
                 Gbc.gridy = x;
                 ClickButtonArray[count] =  new  ClickButton(this,mNames[count],mOperator[count],mText,mCalculator);
- //               ClickButtonArray[count].addActionListener(this);
+                ClickButtonArray[count].addActionListener(this);
                 contentPane.add(ClickButtonArray[count], Gbc);
                 count ++;
             }
@@ -54,16 +54,16 @@ public class MainFrame extends JFrame implements ActionListener{
         Gbc.gridy = 0; 
 
         Gbc.gridwidth =  5;
-        mText.setText("                                                                  ");
+        mText.setText("0                                                                 ");
         mText.setEnabled(false);
         contentPane.add(mText, Gbc);
         this.setVisible(true);
     }
      private Calculator mCalculator;
      private JTextField mText;
-     private final ClickButton [] ClickButtonArray;
-     private final String [] mNames= {"CE","C","←","÷","7","8","9","╳","4","5","6","－","1","2","3","＋","±","0",".","＝"};
-     private final String [] mOperator = {"3","3","3","3","2","2","2","3","2","2","2","2","2","3","2","2","2","3","3","2","1","3"};
+     private ClickButton [] ClickButtonArray;
+     private String [] mNames= {"CE","C","←","÷","7","8","9","╳","4","5","6","－","1","2","3","＋","±","0",".","＝"};
+     private String [] mOperator = {"3","3","3","3","2","2","2","3","2","2","2","2","2","3","2","2","2","3","3","2","1","3"};
 
      /**
       * 監聽
@@ -71,7 +71,25 @@ public class MainFrame extends JFrame implements ActionListener{
       */
     @Override
     public void actionPerformed(ActionEvent e) {
-//        ClickButton mClickButton = new ClickButton();
+        e.getActionCommand();
+        int count = 0;
+        for(int i=0; i<20; i++){
+            if(e.getActionCommand().equals(mNames[i])) count = i;
+        }
+        switch(mOperator[count]){
+            case "1": 
+                mCalculator.appendDot();
+                mText.setText(mCalculator.getDisplay());
+                break;
+            case "2":
+                mCalculator.appendDigit(Float.parseFloat(mNames[count]));
+                mText.setText(mCalculator.getDisplay());
+                break;
+            case "3":
+                mCalculator.performOperation(mNames[count]);
+                break;
+        }
+        mText.setText(count+"");
 /*        switch(mOperator[e.getActionCommand()])
         {
             case "1": 

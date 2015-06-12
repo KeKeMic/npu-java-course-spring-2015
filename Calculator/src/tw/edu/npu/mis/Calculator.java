@@ -9,7 +9,13 @@ package tw.edu.npu.mis;
  * The model class of the calculator application.
  */
 public class Calculator {
-    
+    public Calculator(){
+        this.Change = false;
+        this.Decimalplaces = 0;
+        this.Decimalpoint = false;
+        this.DigitalA = 0;
+        this.DigitalB = 0;
+    }
     /**
      * The available operators of the calculator.
      */
@@ -36,11 +42,11 @@ public class Calculator {
      * 輸入數字
      * @param digit 
      */
-    public void appendDigit(int digit) {
+    public void appendDigit(float digit) {
         // TODO code application logic here
         if(Change == false)
         {
-            if(Decimalpoint == false) DigitalA = (digit * 10) + digit;
+            if(Decimalpoint == false) DigitalA = (DigitalA * 10) + digit;
             else 
             {
                 float n = 1;
@@ -53,7 +59,7 @@ public class Calculator {
         }
         else 
         {
-            if(Decimalpoint == false) DigitalB  = (digit * 10) + digit;
+            if(Decimalpoint == false) DigitalB  = (DigitalB * 10) + digit;
             else 
             {
                 float n = 1;
@@ -103,9 +109,9 @@ public class Calculator {
         // TODO code application logic here
     }*/
 
-    private Boolean Change = false;
-    private Boolean Decimalpoint = false;
+    private Boolean Change;
+    private Boolean Decimalpoint;
     private float DigitalA;
     private float DigitalB;
-    private float Decimalplaces = 0;
+    private float Decimalplaces;
 }
