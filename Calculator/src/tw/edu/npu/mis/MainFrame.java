@@ -15,7 +15,7 @@ import javax.swing.JFrame;
 import javax.swing.JTextField;
 
 /**
- *
+ *建構
  * @author STP
  */
 public class MainFrame extends JFrame implements ActionListener{
@@ -25,7 +25,9 @@ public class MainFrame extends JFrame implements ActionListener{
         initCimponents();
         this.setSize(500, 500);
     }
-
+/**
+ * 使用成是新增Button 和 TextField
+ */
     private void initCimponents() {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         Container contentPane = this.getContentPane();
@@ -41,7 +43,7 @@ public class MainFrame extends JFrame implements ActionListener{
                 Gbc.gridx = y;
                 Gbc.gridy = x;
                 ClickButtonArray[count] =  new  ClickButton(this,mNames[count],mOperator[count],mText,mCalculator);
-                ClickButtonArray[count].addActionListener(this);
+ //               ClickButtonArray[count].addActionListener(this);
                 contentPane.add(ClickButtonArray[count], Gbc);
                 count ++;
             }
@@ -63,8 +65,13 @@ public class MainFrame extends JFrame implements ActionListener{
      private final String [] mNames= {"CE","C","←","÷","7","8","9","╳","4","5","6","－","1","2","3","＋","±","0",".","＝"};
      private final String [] mOperator = {"3","3","3","3","2","2","2","3","2","2","2","2","2","3","2","2","2","3","3","2","1","3"};
 
+     /**
+      * 監聽
+      * @param e 
+      */
     @Override
     public void actionPerformed(ActionEvent e) {
+//        ClickButton mClickButton = new ClickButton();
 /*        switch(mOperator[e.getActionCommand()])
         {
             case "1": 

@@ -32,12 +32,15 @@ public class Calculator {
         MEM_MINUS,   // M-
         MEM_RECALL   // MR
     }
-    
+    /**
+     * 輸入數字
+     * @param digit 
+     */
     public void appendDigit(int digit) {
         // TODO code application logic here
         if(Change == false)
         {
-            if(Decimalpoint == false) DigitalA *= 10 + digit;
+            if(Decimalpoint == false) DigitalA = (digit * 10) + digit;
             else 
             {
                 float n = 1;
@@ -45,12 +48,12 @@ public class Calculator {
                 {
                     n = (float) (n * 0.1);
                 }
-                DigitalA += digit * n ;
+                DigitalA += (digit * n) ;
             }
         }
         else 
         {
-            if(Decimalpoint == false) DigitalB *= 10 + digit;
+            if(Decimalpoint == false) DigitalB  = (digit * 10) + digit;
             else 
             {
                 float n = 1;
@@ -58,11 +61,13 @@ public class Calculator {
                 {
                     n = (float) (n * 0.1);
                 }
-                DigitalB += digit * n ;
+                DigitalB += (digit * n) ;
             }
         }
     }
-    
+    /**
+     * 輸入點點
+     */
     public void appendDot() {
         // TODO code application logic here
         if(Decimalpoint = false)
@@ -71,14 +76,20 @@ public class Calculator {
             Decimalplaces++;
         }
     }
-    
+    /**
+     * 輸入運算符號
+     * @param operator 
+     */
     public void performOperation(String operator) {
         // TODO code application logic here
         Decimalplaces = 0;
         Decimalpoint = false;
         Change = true;
     }
-    
+    /**
+     * 回傳值
+     * @return 
+     */
     public String getDisplay() {
         // TODO code application logic here
         if(Change == false) return String.valueOf(DigitalA);
